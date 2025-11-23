@@ -7,8 +7,8 @@ import {
 } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 
-import Header from '@/components/Header'
 import type { RouterContext } from '@/main'
+import { NavBar } from '@/components/NavBar'
 
 // Routes that don't require authentication
 const publicRoutes = ['/login', '/signup']
@@ -33,12 +33,22 @@ export const Route = createRootRouteWithContext<RouterContext>()({
   component: RootComponent,
 })
 
+function AppNavigation() {
+  const routes = [
+    { path: '/', label: 'Home' },
+    { path: '/about', label: 'About' },
+    //{ path: '/expenses', label: 'Expenses' },
+  ]
+
+  return <NavBar title="Recur" routes={routes} profile="/profile" />
+}
+
 function RootComponent() {
   const location = useLocation()
   const isAuthPage = publicRoutes.includes(location.pathname)
   return (
     <>
-      {!isAuthPage && <Header />}
+      {!isAuthPage && <AppNavigation />}
       <Outlet />
       {import.meta.env.TS_TOOLS && ( // Enable devtools only if TS_TOOLS env var is set
         <TanStackDevtools
