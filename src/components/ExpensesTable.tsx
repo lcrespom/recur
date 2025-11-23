@@ -34,8 +34,8 @@ export function ExpensesTable({ expenses }: ExpensesTableProps) {
             <TableHead className="text-center font-bold">Location</TableHead>
             <TableHead className="text-center font-bold">Phone</TableHead>
             <TableHead className="text-right font-bold">Months</TableHead>
-            <TableHead className="text-right font-bold">Payment Month</TableHead>
-            <TableHead className="text-right font-bold">Payment Day</TableHead>
+            <TableHead className="text-right font-bold">Pmt Month</TableHead>
+            <TableHead className="text-right font-bold">Pmt Day</TableHead>
             <TableHead className="text-right font-bold">Cost</TableHead>
             <TableHead className="text-center font-bold">Bank</TableHead>
           </TableRow>
