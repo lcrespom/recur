@@ -12,18 +12,18 @@ type ExpensesTableProps = {
   expenses: Expense[]
 }
 
-export function ExpensesTable({ expenses }: ExpensesTableProps) {
-  const formatCurrency = (amount: number | null) => {
-    if (amount === null) return '-'
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      // Remove hardcoded locale and above options if needed
-      // minimumFractionDigits: 2,
-      // maximumFractionDigits: 2,
-    }).format(amount)
-  }
+function formatCurrency(amount: number | null): string {
+  if (amount === null) return '-'
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    // Remove hardcoded locale and above options if needed
+    // minimumFractionDigits: 2,
+    // maximumFractionDigits: 2,
+  }).format(amount)
+}
 
+export function ExpensesTable({ expenses }: ExpensesTableProps) {
   return (
     <div className="rounded-md border">
       <Table>
