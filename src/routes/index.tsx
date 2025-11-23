@@ -1,9 +1,10 @@
+import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
-import { createFileRoute } from '@tanstack/react-router'
 
 import { ExpensesTable } from '@/components/ExpensesTable'
-import type { Expense } from '@/model/tables'
+import { Button } from '@/components/ui/button'
 import { supabase } from '@/lib/supabase'
+import type { Expense } from '@/model/tables'
 
 export const Route = createFileRoute('/')({
   component: Home,
@@ -16,6 +17,7 @@ async function fetchExpenses() {
 
 function Home() {
   const [expenses, setExpenses] = useState<Expense[]>([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetchExpenses().then(({ expenses, error }) => {
@@ -29,7 +31,17 @@ function Home() {
 
   return (
     <>
-      <h1>Home</h1>
+      <div className="relative">
+        <div className="relative flex items-center justify-center">
+          <h1>Expenses</h1>
+          <Button
+            className="absolute top-5 right-4"
+            onClick={() => navigate({ to: '/expenses/new' })}
+          >
+            New Expense
+          </Button>
+        </div>
+      </div>
       <div className="mt-4 p-4">
         <ExpensesTable expenses={expenses} />
       </div>

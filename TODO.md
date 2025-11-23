@@ -4,6 +4,9 @@
   - [ ] New Expense
   - [ ] Edit expense
   - [ ] Delete expense
+- Infrastructure & refactor
+  - [ ] Use TanStack Query to improve DX and UX
+  - [ ] Rename components to be in snake-case
 - Other functionality
   - [ ] Rename "name" to "category"?
   - Move expense table from Home to Expenses route
