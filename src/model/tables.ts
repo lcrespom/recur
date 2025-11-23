@@ -1,5 +1,5 @@
 import type { Tables, TablesInsert, TablesUpdate } from './database.types'
 
-export type Expenses = Tables<'expenses'>
-export type ExpensesInsert = TablesInsert<'expenses'>
-export type ExpensesUpdate = TablesUpdate<'expenses'>
+export type Expense = Tables<'expenses'>
+export type ExpenseInsert = TablesInsert<'expenses'>
+export type ExpenseUpdate = TablesUpdate<'expenses'>
