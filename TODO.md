@@ -1,11 +1,5 @@
 # ToDo
 
-- UX
-  - [ ] Mobile responsive layout
-  - [ ] Dark theme support
-  - [ ] Apply theme based on OS preferences
-- Docs
-  - [ ] Proper `README.md`
 - Expenses
   - [ ] New Expense
   - [ ] Edit expense
@@ -16,3 +10,11 @@
   - Home page
     - [ ] List incoming expenses chronologically
     - [ ] Compute monthly/yearly expenses
+  - Profile
+    - [ ] User preferences (if any)
+- UX
+  - [ ] Mobile responsive layout
+  - [ ] Dark theme support
+  - [ ] Apply theme based on OS preferences
+- Docs
+  - [ ] Proper `README.md`
