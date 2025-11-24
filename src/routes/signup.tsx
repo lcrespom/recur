@@ -1,7 +1,7 @@
 import { createFileRoute, Link, useNavigate } from '@tanstack/react-router'
 import { useState } from 'react'
 import { useAuth, isSignedIn } from '@/lib/auth'
-import { LabelInput } from '@/components/label-input'
+import { LabelInput } from '@/components/LabelInput'
 import { Button } from '@/components/ui/button'
 
 type SignupSearch = {

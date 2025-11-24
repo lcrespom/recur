@@ -4,6 +4,7 @@
   - [ ] New Expense
   - [ ] Edit expense
   - [ ] Delete expense
+  - [ ] Add company website URL
 - Infrastructure & refactor
   - [ ] Use TanStack Query to improve DX and UX
   - [ ] Rename components to be in snake-case
