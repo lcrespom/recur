@@ -32,9 +32,9 @@ type TextareaProps = BaseProps & {
   rows?: number
 }
 
-type LabelInputProps = TextInputProps | NumberInputProps | TextareaProps
+type FormGroupProps = TextInputProps | NumberInputProps | TextareaProps
 
-export function LabelInput(props: LabelInputProps) {
+export function FormGroup(props: FormGroupProps) {
   const { id, label, required = false } = props
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null)
   const [error, setError] = useState<string>('')

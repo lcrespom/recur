@@ -1,5 +1,5 @@
 import type { ExpenseInsert } from '@/model/tables'
-import { LabelInput } from '@/components/LabelInput'
+import { FormGroup } from '@/components/FormGroup'
 
 type ExpenseInputsProps = {
   expense: Omit<ExpenseInsert, 'id' | 'user_id'>
@@ -13,7 +13,7 @@ export function ExpenseInputs({ expense, onChange }: ExpenseInputsProps) {
 
   return (
     <div className="grid gap-4">
-      <LabelInput
+      <FormGroup
         id="name"
         label="Expense Name / Category"
         type="text"
@@ -22,7 +22,7 @@ export function ExpenseInputs({ expense, onChange }: ExpenseInputsProps) {
         required
       />
 
-      <LabelInput
+      <FormGroup
         id="company"
         label="Company"
         type="text"
@@ -30,7 +30,7 @@ export function ExpenseInputs({ expense, onChange }: ExpenseInputsProps) {
         onChange={value => handleChange('company', value || null)}
       />
 
-      <LabelInput
+      <FormGroup
         id="phone"
         label="Company Contact Phone"
         type="tel"
@@ -38,7 +38,7 @@ export function ExpenseInputs({ expense, onChange }: ExpenseInputsProps) {
         onChange={value => handleChange('phone', value || null)}
       />
 
-      <LabelInput
+      <FormGroup
         id="location"
         label="Location"
         type="text"
@@ -46,7 +46,7 @@ export function ExpenseInputs({ expense, onChange }: ExpenseInputsProps) {
         onChange={value => handleChange('location', value || null)}
       />
 
-      <LabelInput
+      <FormGroup
         id="months"
         label="Payment recurrence in months (12 = yearly)"
         type="number"
@@ -57,7 +57,7 @@ export function ExpenseInputs({ expense, onChange }: ExpenseInputsProps) {
       />
 
       <div className="grid grid-cols-2 gap-4">
-        <LabelInput
+        <FormGroup
           id="pmt_month"
           label="Payment Month"
           type="number"
@@ -68,7 +68,7 @@ export function ExpenseInputs({ expense, onChange }: ExpenseInputsProps) {
           required
         />
 
-        <LabelInput
+        <FormGroup
           id="pmt_day"
           label="Payment Day"
           type="number"
@@ -79,7 +79,7 @@ export function ExpenseInputs({ expense, onChange }: ExpenseInputsProps) {
         />
       </div>
 
-      <LabelInput
+      <FormGroup
         id="cost"
         label="Cost"
         type="number"
@@ -89,7 +89,7 @@ export function ExpenseInputs({ expense, onChange }: ExpenseInputsProps) {
         step="0.01"
       />
 
-      <LabelInput
+      <FormGroup
         id="bank"
         label="Debit Bank or Card"
         type="text"
@@ -97,7 +97,7 @@ export function ExpenseInputs({ expense, onChange }: ExpenseInputsProps) {
         onChange={value => handleChange('bank', value || null)}
       />
 
-      <LabelInput
+      <FormGroup
         id="comments"
         label="Comments"
         type="textarea"

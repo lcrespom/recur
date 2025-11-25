@@ -1,7 +1,7 @@
 import { createFileRoute, Link, useNavigate } from '@tanstack/react-router'
 import { useState } from 'react'
 import { useAuth } from '@/lib/auth'
-import { LabelInput } from '@/components/LabelInput'
+import { FormGroup } from '@/components/FormGroup'
 import { Button } from '@/components/ui/button'
 
 type LoginSearch = {
@@ -49,7 +49,7 @@ function Login() {
         <h1 className="mb-6 text-center text-2xl font-bold">Sign In</h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <LabelInput
+          <FormGroup
             id="email"
             label="Email"
             type="email"
@@ -59,7 +59,7 @@ function Login() {
             autoComplete="email"
           />
 
-          <LabelInput
+          <FormGroup
             id="password"
             label="Password"
             type="password"
