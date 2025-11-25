@@ -1,6 +1,7 @@
 import { Input as ShadcnInput } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
+import { useRef, useState } from 'react'
 
 type BaseProps = {
   id: string
@@ -35,6 +36,14 @@ type LabelInputProps = TextInputProps | NumberInputProps | TextareaProps
 
 export function LabelInput(props: LabelInputProps) {
   const { id, label, required = false } = props
+  const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null)
+  const [error, setError] = useState<string>('')
+
+  const handleValidation = () => {
+    if (inputRef.current) {
+      setError(inputRef.current.validationMessage)
+    }
+  }
 
   const labelElement = (
     <Label htmlFor={id}>
@@ -48,12 +57,18 @@ export function LabelInput(props: LabelInputProps) {
       <div className="grid gap-2">
         {labelElement}
         <Textarea
+          ref={inputRef as React.RefObject<HTMLTextAreaElement>}
           id={id}
           value={props.value}
-          onChange={e => props.onChange(e.target.value)}
+          onChange={e => {
+            props.onChange(e.target.value)
+            handleValidation()
+          }}
+          onBlur={handleValidation}
           required={required}
           rows={props.rows}
         />
+        {error && <p className="text-sm text-red-500">{error}</p>}
       </div>
     )
   }
@@ -63,18 +78,22 @@ export function LabelInput(props: LabelInputProps) {
       <div className="grid gap-2">
         {labelElement}
         <ShadcnInput
+          ref={inputRef as React.RefObject<HTMLInputElement>}
           id={id}
           type="number"
           value={props.value}
           onChange={e => {
             const value = e.target.value
             props.onChange(value ? parseFloat(value) : null)
+            handleValidation()
           }}
+          onBlur={handleValidation}
           required={required}
           min={props.min}
           max={props.max}
           step={props.step}
         />
+        {error && <p className="text-sm text-red-500">{error}</p>}
       </div>
     )
   }
@@ -83,13 +102,19 @@ export function LabelInput(props: LabelInputProps) {
     <div className="grid gap-2">
       {labelElement}
       <ShadcnInput
+        ref={inputRef as React.RefObject<HTMLInputElement>}
         id={id}
         type={props.type || 'text'}
         value={props.value}
-        onChange={e => props.onChange(e.target.value)}
+        onChange={e => {
+          props.onChange(e.target.value)
+          handleValidation()
+        }}
+        onBlur={handleValidation}
         required={required}
         autoComplete={props.autoComplete}
       />
+      {error && <p className="text-sm text-red-500">{error}</p>}
     </div>
   )
 }
