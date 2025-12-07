@@ -50,6 +50,7 @@ function RootComponent() {
     <>
       {!isAuthPage && <AppNavigation />}
       <Outlet />
+      <div className="mb-4" />
       {import.meta.env.TS_TOOLS && ( // Enable devtools only if TS_TOOLS env var is set
         <TanStackDevtools
           config={{
