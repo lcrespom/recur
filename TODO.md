@@ -3,6 +3,7 @@
 - Expenses
   - [ ] New Expense
   - [ ] Edit expense
+  - [ ] Expense form validation
   - [ ] Delete expense
   - [ ] Add company website URL
 - Infrastructure & refactor
